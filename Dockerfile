@@ -53,6 +53,9 @@ RUN sed -i '/session    required     pam_loginuid.so/c\#session    required     
     rm -f /etc/ssl/certs/localhost.crt /etc/pki/tls/private/localhost.key && \
     rm -f /home/codendiadm/.ssh/id_rsa_gl-adm* /var/lib/gitolite/.ssh/authorized_keys
 
+COPY boot-fixpath.sh /usr/share/tuleap/tools/docker/tuleap-aio/boot-fixpath.sh
+RUN chmod +x /usr/share/tuleap/tools/docker/tuleap-aio/boot-fixpath.sh
+
 VOLUME [ "/data" ]
 
 EXPOSE 22 80 443
